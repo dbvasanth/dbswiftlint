@@ -49,7 +49,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUpTapped(_ sender: UIButton) {
-        if let ctrl = Storyboard.onboard.instantiateViewController(withIdentifier: Screen.SIGNUPVIEWCONTROLLER) as? SignUpViewController {
+        if let ctrl = Storyboard.onboard.instantiateViewController(withIdentifier:
+                                                                    Screen.SIGNUPVIEWCONTROLLER) as? SignUpViewController {
             self.navigationController?.pushViewController(ctrl, animated: true)
         }
     }
@@ -108,7 +109,8 @@ class LoginViewController: UIViewController {
                         self.navigationController?.pushViewController(nextVc, animated: true)
                         }
                     } else if data?.registerStatus == RegisterStatus.mobileVerified.rawValue {
-                        if let nextVc =  Storyboard.onboard.instantiateViewController(withIdentifier: Screen.SIGNUPEMAILVERIFYVIEWCONTROLLER) as? SignupEmailVerifyViewController {
+                        if let nextVc =  Storyboard.onboard.instantiateViewController(withIdentifier:
+                                                                                        Screen.SIGNUPEMAILVERIFYVIEWCONTROLLER) as? SignupEmailVerifyViewController {
                             nextVc.emailID = data?.emailId
                             self.navigationController?.pushViewController(nextVc, animated: true)
                         }
