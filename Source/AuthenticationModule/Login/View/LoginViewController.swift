@@ -78,7 +78,10 @@ class LoginViewController: UIViewController {
             message = Message.password
             passwordTextField.showError(message: message)
         }
-        if !LoginValidation.isValidupperCase(textStr: pwd) || !LoginValidation.isValidlowerCase(textStr: pwd) || !LoginValidation.isValidNumber(textStr: pwd) || !LoginValidation.isVaidSymbol(textStr: pwd) || pwd.count < 5{
+        if !LoginValidation.isValidupperCase(textStr: pwd) ||
+            !LoginValidation.isValidlowerCase(textStr: pwd) ||
+            !LoginValidation.isValidNumber(textStr: pwd) ||
+            !LoginValidation.isVaidSymbol(textStr: pwd) || pwd.count < 5{
             message = Message.password5Characters
             self.showToast(message: message)
         }
