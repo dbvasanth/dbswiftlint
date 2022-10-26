@@ -38,8 +38,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordTapped(_ sender: UIButton) {
-        if let NextVc =  Storyboard.main.instantiateViewController(withIdentifier: Screen.FORGOTPASSWORDVIEWCONTROLLER) as? ForgotPasswordViewController{
-            self.navigationController?.pushViewController(NextVc, animated: true)
+        if let nextVc =  Storyboard.main.instantiateViewController(withIdentifier:
+                                                                    Screen.FORGOTPASSWORDVIEWCONTROLLER) as? ForgotPasswordViewController{
+            self.navigationController?.pushViewController(nextVc, animated: true)
         }
     }
     
@@ -100,15 +101,16 @@ class LoginViewController: UIViewController {
                 AppUserdefault.pincode = data?.defaultPincode
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     if data?.registerStatus == RegisterStatus.basicInfo.rawValue {
-                        if let NextVc =  Storyboard.onboard.instantiateViewController(withIdentifier: Screen.SIGNUPVERIFYVIEWCONTROLLER) as? SignUpVerifyViewController{
-                            NextVc.mobileNum = data?.mobileNumber
-                            NextVc.emailID = data?.emailId
-                        self.navigationController?.pushViewController(NextVc, animated: true)
+                        if let nextVc =  Storyboard.onboard.instantiateViewController(withIdentifier:
+                                                                                        Screen.SIGNUPVERIFYVIEWCONTROLLER) as? SignUpVerifyViewController {
+                            nextVc.mobileNum = data?.mobileNumber
+                            nextVc.emailID = data?.emailId
+                        self.navigationController?.pushViewController(nextVc, animated: true)
                         }
                     } else if data?.registerStatus == RegisterStatus.mobileVerified.rawValue {
-                        if let NextVc =  Storyboard.onboard.instantiateViewController(withIdentifier: Screen.SIGNUPEMAILVERIFYVIEWCONTROLLER) as? SignupEmailVerifyViewController {
-                            NextVc.emailID = data?.emailId
-                            self.navigationController?.pushViewController(NextVc, animated: true)
+                        if let nextVc =  Storyboard.onboard.instantiateViewController(withIdentifier: Screen.SIGNUPEMAILVERIFYVIEWCONTROLLER) as? SignupEmailVerifyViewController {
+                            nextVc.emailID = data?.emailId
+                            self.navigationController?.pushViewController(nextVc, animated: true)
                         }
                     } else if data?.registerStatus == RegisterStatus.emailVerified.rawValue {
                         AppUserdefault.firstName = data?.name
@@ -116,8 +118,9 @@ class LoginViewController: UIViewController {
                         AppUserdefault.countryCode = data?.countryCode
                         AppUserdefault.mobileNumber = data?.mobileNumber
                         AppUserdefault.accessToken = data?.token
-                        if let NextVc =  Storyboard.main.instantiateViewController(withIdentifier: Screen.TABBARCONTROLLER) as? TabbarViewController{
-                            self.navigationController?.pushViewController(NextVc, animated: true)
+                        if let nextVc =  Storyboard.main.instantiateViewController(withIdentifier:
+                                                                                    Screen.TABBARCONTROLLER) as? TabbarViewController{
+                            self.navigationController?.pushViewController(nextVc, animated: true)
                         }
                     }
                 }
